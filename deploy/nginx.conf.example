@@ -1,0 +1,47 @@
+# 用法：
+# 1. 复制到服务器：/etc/nginx/conf.d/sihaoran-portal.conf
+# 2. 把 root 改成你实际放站点的目录
+# 3. nginx -t && systemctl reload nginx
+#
+# 备案完成前：浏览器访问 http://你的公网IP/
+# 备案完成后：把 server_name 改成 sihaoran.cn www.sihaoran.cn，并加 HTTPS
+
+server {
+    listen 80;
+    listen [::]:80;
+    server_name _;
+
+    # 站点目录（示例）
+    root /var/www/sihaoran-portal;
+    index index.html;
+
+    # 静态门户
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+
+    # 大模型：后续接上真实服务时再打开反代
+    # location /ai/ {
+    #     proxy_pass http://127.0.0.1:3000/;
+    #     proxy_set_header Host $host;
+    #     proxy_set_header X-Real-IP $remote_addr;
+    #     proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    #     proxy_set_header X-Forwarded-Proto $scheme;
+    # }
+
+    # 门禁：系统就绪后再配置
+    # location /access/ {
+    #     proxy_pass http://127.0.0.1:xxxx/;
+    # }
+
+    # 缓存静态资源
+    location ~* \.(css|js|png|jpg|jpeg|gif|ico|svg|woff2?)$ {
+        expires 7d;
+        add_header Cache-Control "public";
+        try_files $uri =404;
+    }
+
+    # 基础安全头（HTTP 阶段先轻量配置）
+    add_header X-Content-Type-Options nosniff;
+    add_header Referrer-Policy strict-origin-when-cross-origin;
+}

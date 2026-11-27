@@ -3,74 +3,86 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="haoran 个人平台门户 — 大模型对话、门禁、光伏等功能的统一入口"
-    />
-    <title>haoran · 个人平台</title>
+    <meta name="description" content="" data-i18n-content="metaDescription" />
+    <title data-i18n="pageTitle">haoran · 个人平台</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Sans+SC:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <div class="noise" aria-hidden="true"></div>
-
-    <header class="site-header">
-      <a class="logo" href="/">sihaoran.cn</a>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <div class="topbar-left">
+          <button
+            type="button"
+            class="nav-toggle"
+            id="nav-toggle"
+            aria-expanded="false"
+            aria-controls="sidebar"
+            data-i18n-aria="navToggleAria"
+            aria-label="打开导航"
+          >
+            <span></span><span></span><span></span>
+          </button>
+          <a class="brand-link" href="#overview">sihaoran.cn</a>
+        </div>
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" class="lang-btn" data-lang="zh" aria-pressed="true">
+            中文
+          </button>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">
+            EN
+          </button>
+        </div>
+      </div>
     </header>
 
-    <main>
-      <section class="hero" aria-labelledby="brand">
-        <div class="hero-visual" aria-hidden="true">
-          <div class="orb orb-a"></div>
-          <div class="orb orb-b"></div>
-          <div class="grid-fade"></div>
-        </div>
-        <div class="hero-content">
-          <p class="eyebrow reveal">个人平台门户</p>
-          <h1 id="brand" class="brand reveal">haoran</h1>
-          <p class="lede reveal">
-            一个汇集工具与系统的入口：对话、门禁、光伏，以及后续陆续加入的能力。
+    <div class="shell">
+      <aside class="sidebar" id="sidebar" aria-label="Sidebar">
+        <nav class="side-nav" aria-label="Primary">
+          <a class="side-link is-active" href="#overview" data-nav="overview" data-i18n="navOverview">
+            总览
+          </a>
+          <div id="side-app-links"></div>
+        </nav>
+      </aside>
+
+      <div class="sidebar-backdrop" id="sidebar-backdrop" hidden></div>
+
+      <div class="content">
+        <main>
+          <section class="hero" id="overview" aria-labelledby="hero-title">
+            <h1 id="hero-title" class="lede" data-i18n="heroTitle">工具与系统的统一入口。</h1>
+            <div
+              class="app-grid"
+              id="app-list"
+              role="list"
+              data-i18n-aria="appsAria"
+              aria-label="功能入口"
+            ></div>
+          </section>
+
+          <section class="about" id="about" aria-labelledby="about-title">
+            <div class="about-inner">
+              <h2 id="about-title" class="about-title" data-i18n="aboutTitle">关于</h2>
+              <div class="about-body" id="about-body"></div>
+            </div>
+          </section>
+        </main>
+
+        <footer class="site-footer">
+          <p class="footer-right">
+            <span data-i18n="icp">ICP 备案号待补充</span>
+            <span aria-hidden="true">·</span>
+            <span>© <span id="year"></span></span>
           </p>
-          <div class="hero-cta reveal">
-            <a class="btn btn-primary" href="#apps">进入功能</a>
-          </div>
-        </div>
-      </section>
-
-      <section class="section about" aria-labelledby="about-title">
-        <div class="section-inner">
-          <h2 id="about-title" class="section-title reveal">关于</h2>
-          <p class="section-copy reveal">
-            我是 haoran。这里是个人平台的统一门户，不需要登录即可浏览。
-            点击下方入口可进入对应系统；各模块会按需要独立演进，门户负责把它们串起来。
-          </p>
-        </div>
-      </section>
-
-      <section class="section apps" id="apps" aria-labelledby="apps-title">
-        <div class="section-inner">
-          <h2 id="apps-title" class="section-title reveal">功能入口</h2>
-          <p class="section-copy reveal">选择一个模块开始使用。</p>
-          <div class="app-list" id="app-list" role="list"></div>
-        </div>
-      </section>
-    </main>
-
-    <footer class="site-footer">
-      <div class="footer-inner">
-        <p class="footer-brand">haoran · sihaoran.cn</p>
-        <p class="footer-meta">
-          <span>ICP 备案号待补充</span>
-          <span aria-hidden="true">·</span>
-          <span>© <span id="year"></span></span>
-        </p>
+        </footer>
       </div>
-    </footer>
+    </div>
 
     <script src="assets/js/main.js"></script>
   </body>
