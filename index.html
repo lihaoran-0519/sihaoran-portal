@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="haoran 个人平台门户 — 大模型对话、门禁、光伏等功能的统一入口"
+    />
+    <title>haoran · 个人平台</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Noto+Sans+SC:wght@400;500;600&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+
+    <header class="site-header">
+      <a class="logo" href="/">sihaoran.cn</a>
+    </header>
+
+    <main>
+      <section class="hero" aria-labelledby="brand">
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orb orb-a"></div>
+          <div class="orb orb-b"></div>
+          <div class="grid-fade"></div>
+        </div>
+        <div class="hero-content">
+          <p class="eyebrow reveal">个人平台门户</p>
+          <h1 id="brand" class="brand reveal">haoran</h1>
+          <p class="lede reveal">
+            一个汇集工具与系统的入口：对话、门禁、光伏，以及后续陆续加入的能力。
+          </p>
+          <div class="hero-cta reveal">
+            <a class="btn btn-primary" href="#apps">进入功能</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section about" aria-labelledby="about-title">
+        <div class="section-inner">
+          <h2 id="about-title" class="section-title reveal">关于</h2>
+          <p class="section-copy reveal">
+            我是 haoran。这里是个人平台的统一门户，不需要登录即可浏览。
+            点击下方入口可进入对应系统；各模块会按需要独立演进，门户负责把它们串起来。
+          </p>
+        </div>
+      </section>
+
+      <section class="section apps" id="apps" aria-labelledby="apps-title">
+        <div class="section-inner">
+          <h2 id="apps-title" class="section-title reveal">功能入口</h2>
+          <p class="section-copy reveal">选择一个模块开始使用。</p>
+          <div class="app-list" id="app-list" role="list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <p class="footer-brand">haoran · sihaoran.cn</p>
+        <p class="footer-meta">
+          <span>ICP 备案号待补充</span>
+          <span aria-hidden="true">·</span>
+          <span>© <span id="year"></span></span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>
